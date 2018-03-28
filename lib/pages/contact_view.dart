@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/contact_data.dart';
+import 'contact_details.dart';
 
 class ContactsPage extends StatelessWidget {
   @override
@@ -58,12 +59,14 @@ class ContactItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return Scaffold(
-                appBar: AppBar(
-                  title: Text(contact.fullName)
-                ),
-                body: Text('Hello'),
-              );
+              // TODO: 어떻게 page간 데이터를 넘기는지?
+              return ContactViewPage();
+              // return Scaffold(
+              //   appBar: AppBar(
+              //     title: Text(contact.fullName)
+              //   ),
+              //   body: Text('Hello'),
+              // );
             },
           ),
         );
