@@ -4,12 +4,12 @@ import 'contact_data.dart';
 class ContactsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Contacts"),
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Contacts"),
         ),
-        body: Container(
-          child: ContactList(kContacts),
+        body: new Container(
+          child: new ContactList(kContacts),
         )
       );
   }
@@ -22,7 +22,7 @@ class ContactList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return new ListView.builder(
       padding: EdgeInsets.symmetric(vertical: 8.0),
       itemCount: _contacts.length,
       itemBuilder: _buildContacts,
@@ -30,7 +30,7 @@ class ContactList extends StatelessWidget {
   }
 
   Widget _buildContacts(context, index) {
-    return ContactItem(_contacts[index]);
+    return new ContactItem(_contacts[index]);
   }
 }
 
@@ -53,3 +53,11 @@ class ContactItem extends StatelessWidget {
     return _buildTiles(contact);
   }
 }
+
+// class _ContactListItem extends ListTile {
+//   _ContactListItem(Contact contact)
+//       : super(
+//             title: new Text(contact.fullName),
+//             subtitle: new Text(contact.email),
+//             leading: new CircleAvatar(child: new Text(contact.fullName[0])));
+// }
