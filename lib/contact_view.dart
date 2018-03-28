@@ -23,7 +23,7 @@ class ContactList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       itemCount: _contacts.length,
       itemBuilder: _buildContacts,
     );
@@ -40,11 +40,11 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   Widget _buildTiles(Contact contact) {
-    return ListTile(
-        title: Text(contact.fullName),
-        subtitle: Text(contact.email),
-        leading: CircleAvatar(
-          child: Text(contact.fullName[0]),
+    return new ListTile(
+        title: new Text(contact.fullName),
+        subtitle: new Text(contact.email),
+        leading: new CircleAvatar(
+          child: new Text(contact.fullName[0]),
         ));
   }
 
@@ -53,11 +53,3 @@ class ContactItem extends StatelessWidget {
     return _buildTiles(contact);
   }
 }
-
-// class _ContactListItem extends ListTile {
-//   _ContactListItem(Contact contact)
-//       : super(
-//             title: new Text(contact.fullName),
-//             subtitle: new Text(contact.email),
-//             leading: new CircleAvatar(child: new Text(contact.fullName[0])));
-// }
