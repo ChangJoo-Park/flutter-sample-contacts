@@ -3,20 +3,55 @@ import '../models/contact_data.dart';
 import 'contact_details.dart';
 
 class ContactsPage extends StatelessWidget {
+  Drawer buildDrawer(BuildContext context) {
+    var header = DrawerHeader(
+      child: Container(
+        child: Text("Contact App Header"),
+      )
+    );
+
+    var about = AboutListTile(
+      child: Text("About Contact"),
+      applicationName: "Contact App Example",
+      applicationVersion: "V0.0.1",
+      applicationIcon: Icon(Icons.hourglass_empty),
+      icon: Icon(Icons.info),
+    );
+
+    ListTile buildNavItem(var icon, String label, String route) {
+      return ListTile(
+        leading: Icon(icon),
+        title: Text(label),
+        onTap: () {
+          // FIXME: Need Stateful Widget
+          // setState(() {
+          //   Navigator.of(context).pop();
+          //   Navigator.of(context).pushNamed(route);
+          // });
+        },
+      );
+    }
+
+    var navList = [
+      header,
+      buildNavItem(Icons.home, "Home", "/"),
+      buildNavItem(Icons.settings, "Settings", "/contact_details"),
+      buildNavItem(Icons.account_balance_wallet, "Account", "/account"),
+      about
+    ];
+
+    ListView listView = ListView(children: navList);
+
+    return Drawer(child: listView);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text("Contacts"),
         ),
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              Padding(padding: EdgeInsets.all(10.0),),
-              Text('Hello World')
-            ],
-          ),
-        ),
+        drawer: buildDrawer(context),
         body: Container(
           child: ContactList(kContacts),
         ));
