@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+
 import '../models/contact_data.dart';
 import 'contact_details.dart';
 
 class ContactsPage extends StatelessWidget {
   Drawer buildDrawer(BuildContext context) {
     var header = DrawerHeader(
-      child: Container(
-        child: Text("Contact App Header"),
-      )
-    );
+        child: Container(
+          child: Text("Contact App Header"),
+        ));
 
     var about = AboutListTile(
       child: Text("About Contact"),
